@@ -2,7 +2,7 @@
  * @file TCS3472_LED_Control.ino
  * @author -T.K.- (t_k_233@outlook.com)
  * @brief In this example we will toggle the onboard LED with a frequency of 0.5 Hz (cycle between 1s ON and 1s OFF)
- * @version 0.1
+ * @version 0.2
  * @date 2021-01-13
  * 
  * @copyright Copyright (c) 2021

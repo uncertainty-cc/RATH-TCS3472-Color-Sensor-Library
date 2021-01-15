@@ -2,7 +2,7 @@
  * @file TCS3472_Read_Raw_RGBA_Value.ino
  * @author -T.K.- (t_k_233@outlook.com)
  * @brief In this example we will use the TCS3472 module to read raw RGBA values and process them.
- * @version 0.1
+ * @version 0.2
  * @date 2021-01-13
  * 
  * @copyright Copyright (c) 2021
@@ -38,6 +38,7 @@ void setup() {
   if (!m_sensor.isConnected()) {
     while (1) {
       /* if not connected, there is no purpose to proceed */
+      Serial.println("Error! device not connected.");
     }
   }
 
@@ -62,11 +63,14 @@ void loop() {
   uint32_t alpha = data[3];
   float r, g, b;
   r = data[0];
-  r /= alpha;
   g = data[1];
-  g /= alpha;
   b = data[2];
-  b /= alpha;
+
+  if (alpha != 0) {
+    r /= alpha;
+    g /= alpha;
+    b /= alpha;
+  }
 
   /* print out the values */
   Serial.print("R: ");
